@@ -1,83 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prediksi Suhu</title>
+    <title>Weather Prediction App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f0f4f8;
+            background-color: #add8e6;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-
         .container {
             background: white;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
         }
-
         h1 {
-            margin-bottom: 25px;
+            text-align: center;
             color: #333;
         }
-
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-top: 10px;
             font-weight: bold;
         }
-
         input[type="text"] {
-            padding: 10px;
             width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 16px;
+            border-radius: 5px;
         }
-
         button {
-            padding: 10px 20px;
+            width: 100%;
+            padding: 10px;
             background-color: #1976d2;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
         }
-
         button:hover {
             background-color: #0f5bb5;
         }
-
         .result {
             margin-top: 20px;
-            font-size: 18px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+            color: #00796b;
             font-weight: bold;
-            color: #444;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Prediksi Suhu Berdasarkan Kelembaban</h1>
-        <form action="/" method="post">
-            <label for="humidity">Kelembaban (%)</label>
-            <input type="text" id="humidity" name="humidity" required>
-            <button type="submit">Prediksi</button>
-        </form>
+<div class="container">
+    <h1>Weather Prediction App</h1>
+    <form action="/" method="post">
+        <label>Air Pressure</label>
+        <input type="text" name="air_pressure" required>
 
-        {% if prediction is not none %}
-            <div class="result">
-                Hasil sPrediksi: {{ prediction }}°C
-            </div>
-        {% endif %}
-    </div>
+        <label>Avg Wind Direction</label>
+        <input type="text" name="avg_wind_direction" required>
+
+        <label>Avg Wind Speed</label>
+        <input type="text" name="avg_wind_speed" required>
+
+        <label>Max Wind Direction</label>
+        <input type="text" name="max_wind_direction" required>
+
+        <label>Max Wind Speed</label>
+        <input type="text" name="max_wind_speed" required>
+
+        <label>Min Wind Direction</label>
+        <input type="text" name="min_wind_direction" required>
+
+        <label>Min Wind Speed</label>
+        <input type="text" name="min_wind_speed" required>
+
+        <label>Relative Humidity</label>
+        <input type="text" name="relative_humidity" required>
+
+        <label>Hour</label>
+        <input type="text" name="hour" required>
+
+        <label>Day</label>
+        <input type="text" name="day" required>
+
+        <label>Month</label>
+        <input type="text" name="month" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+        <div class="result">
+            Temperature Category: {{ category }}<br>
+            Air Temperature: {{ prediction }} °F
+        </div>
+    {% endif %}
+</div>
 </body>
 </html>
