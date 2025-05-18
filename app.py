@@ -17,8 +17,7 @@ data['hour'] = data['timestamp'].dt.hour
 data['day'] = data['timestamp'].dt.day
 data['month'] = data['timestamp'].dt.month
 
-# Simulasikan kolom tambahan jika diperlukan
-# Previous Air Temp dan 3-Min Avg Temp bisa dimodelkan pakai rolling window jika ingin
+
 
 # Fitur yang digunakan
 features = ['air_pressure', 'avg_wind_direction', 'avg_wind_speed',
